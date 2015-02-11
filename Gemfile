@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'haml-rails'
 
+gem 'devise'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
