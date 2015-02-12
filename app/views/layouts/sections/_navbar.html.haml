@@ -1,0 +1,16 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      %button{type: 'button', class: 'navbar-toggle collapsed', data: {toggle: 'collapse', target: '#navbar'}, aria: {expanded: 'false', controls: 'navbar'}}
+        %span.sr-only Toggle Navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'Clash Buddy', root_path, class: 'navbar-brand'
+    #navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li= link_to 'Profile', '#'
+          %li= link_to 'Sign Out', destroy_user_session_path
+        - else
+          %li= link_to 'Sign in', new_user_session_path
