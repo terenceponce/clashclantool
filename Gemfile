@@ -11,6 +11,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 
 gem 'devise'
+gem 'capistrano', '~> 3.3.0'
 
 group :development, :test do
   gem 'byebug'
