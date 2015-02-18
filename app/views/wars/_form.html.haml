@@ -1,0 +1,11 @@
+= form_for @war do |f|
+  .form-group
+    = f.label :clan_name
+    = f.text_field :clan_name, class: 'form-control', placeholder: 'Clan Name'
+  .form-group
+    = f.label :opponent_clan_name
+    = f.text_field :opponent_clan_name, class: 'form-control', placeholder: 'Opponent Clan Name'
+  .form-group
+    = f.label :war_size_id
+    = f.select :war_size_id, options_from_collection_for_select(@war_size, :id, :name)
+  = f.submit class: 'btn btn-primary'
