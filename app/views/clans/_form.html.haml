@@ -1,0 +1,11 @@
+= form_for @clan, html: {class: 'form-horizontal'} do |f|
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      %h1 Create Clan
+  .form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control', placeholder: 'Clan Name'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-default'
