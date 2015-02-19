@@ -1,3 +1,3 @@
 class Clan < ActiveRecord::Base
-  has_many :members
+  has_many :members, class_name: 'User'
 end
