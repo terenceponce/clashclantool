@@ -1,4 +1,6 @@
 class WarsController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create]
+
   def new
     @war = War.new
     @war_size = WarSize.all
