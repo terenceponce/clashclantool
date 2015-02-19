@@ -1,0 +1,7 @@
+%h1= @clan.name
+
+= link_to 'Start a war'
+
+%ol
+  - @clan.members.each do |member|
+    %li= member.name
