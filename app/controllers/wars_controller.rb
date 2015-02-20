@@ -1,5 +1,6 @@
 class WarsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create]
+  before_filter :reject_unfriendly_id, only: [:show]
 
   def new
     @war = War.new
@@ -17,6 +18,17 @@ class WarsController < ApplicationController
   end
 
   def show
-    @war = War.find(params[:id])
+    begin
+      @war = War.friendly.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      not_found
+    end
   end
+
+  private
+    def reject_unfriendly_id
+      if params[:id].to_i > 0
+        not_found
+      end
+    end
 end
