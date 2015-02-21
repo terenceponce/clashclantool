@@ -5,7 +5,7 @@ class CreatesWarCompositionAction
   executed do |context|
     context.war.save
 
-    Member.transaction do
+    Opponent.transaction do
       context.war.size.size.times.each do |position|
         context.war.opponent_clan.members.create(war_position: position)
       end

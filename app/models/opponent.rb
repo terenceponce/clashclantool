@@ -1,3 +1,3 @@
-class Member < ActiveRecord::Base
+class Opponent < ActiveRecord::Base
   belongs_to :clan, class_name: 'OpponentClan', foreign_key: 'opponent_clan_id'
 end
