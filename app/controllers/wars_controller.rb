@@ -21,6 +21,7 @@ class WarsController < ApplicationController
   def show
     begin
       @war = War.friendly.find(params[:id])
+      @opponents = Opponent.where(opponent_clan_id: @war.opponent_clan_id).order(war_position: :asc)
     rescue ActiveRecord::RecordNotFound
       not_found
     end

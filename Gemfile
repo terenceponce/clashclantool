@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'friendly_id', '~> 5.1.0'
 gem 'light-service'
+gem 'draper', '~> 1.3'
 
 gem 'capistrano', '~> 3.3.0'
 gem 'capistrano-bundler', '~> 1.1.2'

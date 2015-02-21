@@ -1,1 +1,23 @@
-%h1 #{@war.clan.name} vs #{@war.opponent.name}
+.row
+  .col-sm-12.col-md-offset-4.col-md-8
+    %h1 #{@war.clan.name} vs #{@war.opponent_clan.name}
+    %p Your War ID is #{@war.code}. Share this with your clan mates
+
+.row
+  .col-sm-12.col-md-offset-2.col-md-10
+    %table.table
+      %thead
+        %tr
+          %td #
+          %td Name
+          %td
+          %td
+          %td
+          %td
+          %td
+          %td
+      %tbody
+        - @opponents.each do |opponent|
+          %tr
+            %td= link_to opponent.war_position, '#'
+            %td= link_to opponent.decorate.name, '#'
