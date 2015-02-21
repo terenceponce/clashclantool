@@ -7,6 +7,7 @@
     .col-sm-10
       - if current_user.clan.present?
         %p.form-control-static= current_user.clan.name
+        = f.hidden_field :clan_id, value: current_user.clan_id
       - else
         = f.text_field :clan_name, class: 'form-control', placeholder: 'Clan Name'
   .form-group

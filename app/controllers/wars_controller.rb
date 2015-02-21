@@ -8,9 +8,10 @@ class WarsController < ApplicationController
   end
 
   def create
-    @war = War.new(params[:war])
+    @war = War.new(war_params)
 
-    if @war.save
+    if @war.valid?
+      OrganizesWar.for_war(@war, current_user)
       redirect_to war_url(@war)
     else
       render action: :new
@@ -26,6 +27,10 @@ class WarsController < ApplicationController
   end
 
   private
+    def war_params
+      params.require(:war).permit(:clan_id, :clan_name, :opponent_clan_name, :war_size_id)
+    end
+
     def reject_unfriendly_id
       if params[:id].to_i > 0
         not_found
