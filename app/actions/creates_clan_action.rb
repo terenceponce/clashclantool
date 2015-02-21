@@ -4,10 +4,11 @@ class CreatesClanAction
 
   executed do |context|
     if context.user.clan.present?
-      next context
+      context.war.clan_id = context.user.clan_id
     else
       clan = Clan.create(name: context.war.clan_name)
       context.war.clan_id = clan.id
+      context.user.update_attribute(:clan_id, clan.id)
     end
   end
 end
