@@ -19,5 +19,5 @@
       %tbody
         - @opponents.each do |opponent|
           %tr
-            %td= link_to opponent.war_position, '#'
-            %td= link_to opponent.decorate.name, '#'
+            %td= link_to opponent.war_position, war_opponent_path(@war, opponent)
+            %td= link_to opponent.decorate.name, war_opponent_path(@war, opponent)

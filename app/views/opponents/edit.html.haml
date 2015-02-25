@@ -1,0 +1,8 @@
+.row
+  .col-sm-12
+    %h1 Edit Opponent Information
+    = form_for [@war, @opponent] do |f|
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control', placeholder: f.object.decorate.name
+      = f.submit class: 'btn btn-primary'
