@@ -3,4 +3,23 @@
     %h1 Clash Clan Tool
 
     = link_to 'Start War', new_war_path, class: 'btn btn-default btn-lg'
-    = link_to 'Join War', '#', class: 'btn btn-default btn-lg'
+    = link_to 'Join War', '#', class: 'btn btn-default btn-lg', data: {toggle: 'modal', target: '#join-war-modal'}
+
+- content_for :modal do
+  #join-war-modal.modal.fade{tabindex: '-1', role: 'dialog', aria: {labelledby: 'join-war-title', hidden: 'true'}}
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          %button.close{type: 'button', data: {dismiss: 'modal'}, aria: {label: 'Close'}}
+            %span{aria: {hidden: 'true'}} &times;
+          %h4#join-war-title.modal-title Join War
+        .modal-body
+          = form_tag nil, id: 'join-war-form' do
+            .form-group
+              = label_tag :code
+              = text_field_tag :code, '', class: 'form-control', placeholder: 'Enter the war code'
+            .form-group
+              = link_to 'Join War', 'javascript:void(0)', class: 'btn btn-default', id: 'join-war-submit'
+
+- content_for :page_javascript do
+  = javascript_include_tag :home
